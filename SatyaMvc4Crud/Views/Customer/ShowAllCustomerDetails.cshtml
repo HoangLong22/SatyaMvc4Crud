@@ -1,0 +1,126 @@
+﻿@model SatyaMvc4Crud.Models.Customer
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowAllCustomerDetails</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <div style="font-family:Arial Black;">
+        <h2 style="text-align: center; font-style: oblique">SATYAPRAKASH's MVC Customer CRUD Operation</h2>
+        @*<h2 style="text-align:center"></h2>*@
+    <p>
+        @*<p style="text-align:center">*@
+        @*@Html.ActionLink(linkText: "New Customer", actionName: "InsertCustomer", controllerName: "Customer")*@
+        <a class="btn btn-primary btn-sm" href="/Customer/InsertCustomer">
+            <i class="fa fa-plus-circle"></i> New Customer
+        </a>
+    </p>
+        <br />
+        <br />
+            <table class="table table-bordered table-striped" style="text-align: center">
+                <thead>
+                    <tr>
+                        <th style="background-color:Yellow;color:blue; text-align: center">
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th style="background-color: Yellow;color: blue; text-align: center">
+                            @Html.DisplayNameFor(model => model.Address)
+                        </th>
+                        <th style="background-color: Yellow;color: blue; text-align: center">
+                            @Html.DisplayNameFor(model => model.Mobileno)
+                        </th>
+                        <th style="background-color: Yellow;color: blue; text-align: center">
+                            @Html.DisplayNameFor(model => model.Birthdate)
+                        </th>
+                        <th style="background-color: Yellow;color: blue; text-align: center" ">
+                            @Html.DisplayNameFor(model => model.EmailID)
+                        </th>
+                        <th style="background-color: Yellow;color: blue; text-align: center" ">
+                            Operation
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.ShowallCustomer)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Address)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Mobileno)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Birthdate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EmailID)
+                            </td>
+                            <td>
+
+                                <a class="btn btn-primary btn-sm" href="/Customer/Edit/@item.CustomerID" style="background: green">
+                                    <i class="fa fa-edit"></i> Modify
+                                </a> |
+
+                                <a class="btn btn-primary btn-sm" href="/Customer/Details/@item.CustomerID">
+                                    <i class="fa fa-info-circle"></i> Detail
+                                </a> |
+
+                                <a class="btn btn-primary btn-sm" onclick = "return confirm('Are sure wants to delete?');" href="/Customer/Delete/@item.CustomerID" style="background-color: red">
+                                    <i class="fa fa-trash"></i> Remove
+                                </a>
+                            </td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+
+            @if (TempData["result1"] != null)
+            {
+                <script type="text/javascript">
+
+                    alert("Record Is Inserted Successfully");
+                </script>
+
+            }
+            @if (TempData["result2"] != null)
+            {
+                <script type="text/javascript">
+
+                    alert("Record Is Updated Successfully");
+                </script>
+
+            }
+            @if (TempData["result3"] != null)
+            {
+                <script type="text/javascript">
+
+                    alert("Record Is Deleted Successfully");
+                </script>
+
+            }
+            <br />
+            <br />
+            <footer>
+                <p style="text-align:center ; color:blue">Hoang Long © @DateTime.Now.ToLocalTime()</p> @*Add Date Time*@
+            </footer>
+        </div>
+</body>
+</html> 

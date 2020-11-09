@@ -1,0 +1,67 @@
+﻿@model SatyaMvc4Crud.Models.Customer
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="content">
+        <h3>Customer Report</h3>
+        <a class="btn btn-success" id="list" href="/Customer/ShowAllCustomerDetails">
+            List Customer
+        </a>
+        <table class="table table-bordered table-striped" style="text-align: center">
+            <thead>
+                <tr>
+                    <th style="text-align: center">
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th style="text-align: center">
+                        @Html.DisplayNameFor(model => model.Address)
+                    </th>
+                    <th style="text-align: center">
+                        @Html.DisplayNameFor(model => model.Mobileno)
+                    </th>
+                    <th style="text-align: center">
+                        @Html.DisplayNameFor(model => model.Birthdate)
+                    </th>
+                    <th style="text-align: center">
+                        @Html.DisplayNameFor(model => model.EmailID)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => model.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Mobileno)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Birthdate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.EmailID)
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html> 
