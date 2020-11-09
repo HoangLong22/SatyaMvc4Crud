@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="~/Content/Site.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
@@ -21,7 +22,7 @@
     <div style="font-family:Arial Black;">
         <h2 style="text-align: center; font-style: oblique">Test MVC Customer CRUD Operation</h2>
         @*<h2 style="text-align:center"></h2>*@
-    <p>
+    <p class="link">
         @*<p style="text-align:center">*@
         @*@Html.ActionLink(linkText: "New Customer", actionName: "InsertCustomer", controllerName: "Customer")*@
         <a class="btn btn-primary btn-sm" href="/Customer/InsertCustomer">
@@ -76,11 +77,11 @@
 
                                 <a class="btn btn-primary btn-sm" href="/Customer/Edit/@item.CustomerID" style="background: green">
                                     <i class="fa fa-edit"></i> Modify
-                                </a> |
+                                </a>
 
                                 <a class="btn btn-primary btn-sm" href="/Customer/Details/@item.CustomerID">
                                     <i class="fa fa-info-circle"></i> Detail
-                                </a> |
+                                </a>
 
                                 <a class="btn btn-primary btn-sm" onclick = "return confirm('Are sure wants to delete?');" href="/Customer/Delete/@item.CustomerID" style="background-color: red">
                                     <i class="fa fa-trash"></i> Remove

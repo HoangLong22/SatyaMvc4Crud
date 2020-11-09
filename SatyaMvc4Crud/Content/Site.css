@@ -29,6 +29,10 @@ select,*/
     padding-bottom: 10px;
     background-color: #5679bb;
 }
+.link {
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
 .content .view .container .col-md-3 {
     padding-top: 10px;
     text-align: center;
