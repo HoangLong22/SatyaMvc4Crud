@@ -19,12 +19,13 @@
     <script src="~/Scripts/jquery-1.7.1.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <div class="title">
+        <h3>Add Customer</h3>
+    </div>
     <div class="content">
         @using (Html.BeginForm())
-        {
-
+         {
             @Html.ValidationSummary(true)
-            <h3>Add Customer</h3>
             <div class="view">
                 <div class="container">
                     <div class="row">
@@ -83,15 +84,15 @@
                                     @Html.ValidationMessageFor(model => model.EmailID)
                                 </div>
                             </div>
-
                                 <p>
                                     <input type="submit" value="Insert" class="btn btn-success" />
                                     <input type="reset" value="Reset" class="btn btn-danger" />
+                                </p>
                             </div>
                         </div>
                 </div>
             </div>
-        }
+         }
     </div>
 </body>
 </html> 

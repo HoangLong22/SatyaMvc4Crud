@@ -9,30 +9,25 @@ using System.Web.Mvc;
 namespace SatyaMvc4Crud.Controllers
 {
     public class CustomerController : Controller
-    {
-        //  
-        // GET: /Customer/  
+    { 
         [HttpGet]
         public ActionResult InsertCustomer()
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult InsertCustomer(Customer objCustomer)
         {
-
             objCustomer.Birthdate = Convert.ToDateTime(objCustomer.Birthdate);
-            if (ModelState.IsValid) //checking model is valid or not  
+            if (ModelState.IsValid)
             {
                 DataAccessLayer objDB = new DataAccessLayer();
-                string result = objDB.InsertData(objCustomer);
-                //ViewData["result"] = result;  
-                TempData["result1"] = result;
-                ModelState.Clear(); //clearing model  
-                                    //return View();  
+                string result = objDB.InsertData(objCustomer); 
+                TempData["resultInsert"] = result;
+                ModelState.Clear(); 
                 return RedirectToAction("ShowAllCustomerDetails");
             }
-
             else
             {
                 ModelState.AddModelError("", "Error in saving data");
@@ -44,26 +39,24 @@ namespace SatyaMvc4Crud.Controllers
         public ActionResult ShowAllCustomerDetails()
         {
             Customer objCustomer = new Customer();
-            DataAccessLayer objDB = new DataAccessLayer(); //calling class DBdata  
+            DataAccessLayer objDB = new DataAccessLayer();
             objCustomer.ShowallCustomer = objDB.Selectalldata();
             return View(objCustomer);
         }
+
         [HttpGet]
         public ActionResult Details(string ID)
         {
-            //Customer objCustomer = new Customer();  
-            //DataAccessLayer objDB = new DataAccessLayer(); //calling class DBdata  
-            //objCustomer.ShowallCustomer = objDB.Selectalldata();  
-            //return View(objCustomer);  
             Customer objCustomer = new Customer();
-            DataAccessLayer objDB = new DataAccessLayer(); //calling class DBdata  
+            DataAccessLayer objDB = new DataAccessLayer();
             return View(objDB.SelectDatabyID(ID));
         }
+
         [HttpGet]
         public ActionResult Edit(string ID)
         {
             Customer objCustomer = new Customer();
-            DataAccessLayer objDB = new DataAccessLayer(); //calling class DBdata  
+            DataAccessLayer objDB = new DataAccessLayer();
             return View(objDB.SelectDatabyID(ID));
         }
 
@@ -71,14 +64,12 @@ namespace SatyaMvc4Crud.Controllers
         public ActionResult Edit(Customer objCustomer)
         {
             objCustomer.Birthdate = Convert.ToDateTime(objCustomer.Birthdate);
-            if (ModelState.IsValid) //checking model is valid or not  
+            if (ModelState.IsValid) 
             {
-                DataAccessLayer objDB = new DataAccessLayer(); //calling class DBdata  
-                string result = objDB.UpdateData(objCustomer);
-                //ViewData["result"] = result;  
-                TempData["result2"] = result;
-                ModelState.Clear(); //clearing model  
-                //return View();  
+                DataAccessLayer objDB = new DataAccessLayer(); 
+                string result = objDB.UpdateData(objCustomer);  
+                TempData["resultEdit"] = result;
+                ModelState.Clear(); 
                 return RedirectToAction("ShowAllCustomerDetails");
             }
             else
@@ -93,9 +84,8 @@ namespace SatyaMvc4Crud.Controllers
         {
             DataAccessLayer objDB = new DataAccessLayer();
             int result = objDB.DeleteData(ID);
-            TempData["result3"] = result;
-            ModelState.Clear(); //clearing model  
-                                //return View();  
+            TempData["resultDelete"] = result;
+            ModelState.Clear(); 
             return RedirectToAction("ShowAllCustomerDetails");
         }
     }

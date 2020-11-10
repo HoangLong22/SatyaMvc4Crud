@@ -21,7 +21,6 @@ namespace SatyaMvc4Crud.DataAccess
                 con = new SqlConnection(ConfigurationManager.ConnectionStrings["mycon"].ToString());
                 SqlCommand cmd = new SqlCommand("Usp_InsertUpdateDelete_Customer", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                //cmd.Parameters.AddWithValue("@CustomerID", 0);  
                 cmd.Parameters.AddWithValue("@Name", objcust.Name);
                 cmd.Parameters.AddWithValue("@Address", objcust.Address);
                 cmd.Parameters.AddWithValue("@Mobileno", objcust.Mobileno);

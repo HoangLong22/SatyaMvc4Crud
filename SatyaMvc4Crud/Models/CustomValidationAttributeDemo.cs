@@ -15,8 +15,8 @@ namespace SatyaMvc4Crud.Models
             {
                 if (value != null)
                 {
-                    DateTime _birthJoin = Convert.ToDateTime(value);
-                    if (_birthJoin > DateTime.Now)
+                    DateTime birthJoin = Convert.ToDateTime(value);
+                    if (birthJoin > DateTime.Now)
                     {
                         return new ValidationResult("Birth date can not be greater than current date.");
                     }
