@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
@@ -20,7 +21,9 @@
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <div style="font-family:Arial Black;">
-        <h2 style="text-align: center; font-style: oblique">Test MVC Customer CRUD Operation</h2>
+        <div class="title">
+            <h3>Test MVC Customer CRUD Operation</h3>
+        </div>
     <p class="link">
         <a class="btn btn-primary btn-sm" href="/Customer/InsertCustomer">
             <i class="fa fa-plus-circle"></i> New Customer
@@ -119,6 +122,6 @@
             <footer>
                 <p style="text-align:center ; color:blue">Hoang Long © @DateTime.Now.ToLocalTime()</p>
             </footer>
-        </div>
+    </div>
 </body>
 </html> 

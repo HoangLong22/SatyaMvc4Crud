@@ -10,10 +10,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <script src="~/Scripts/jquery-1.7.1.min.js"></script>
@@ -39,7 +40,7 @@
                             <hr />
                             <div class="row">
                                 <div class="col-md-2">
-                                    @Html.LabelFor(model => model.Name)
+                                    @Html.LabelFor(model => model.Name, new { Styles="font-weight: 400"})
                                 </div>
                                 <div class="col-md-10">
                                     @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = "Name"})

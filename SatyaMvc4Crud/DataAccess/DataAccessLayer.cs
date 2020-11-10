@@ -14,7 +14,7 @@ namespace SatyaMvc4Crud.DataAccess
         public string InsertData(Customer objcust)
         {
             SqlConnection con = null;
-
+            var insert = 1;
             string result = "";
             try
             {
@@ -26,7 +26,7 @@ namespace SatyaMvc4Crud.DataAccess
                 cmd.Parameters.AddWithValue("@Mobileno", objcust.Mobileno);
                 cmd.Parameters.AddWithValue("@Birthdate", objcust.Birthdate);
                 cmd.Parameters.AddWithValue("@EmailID", objcust.EmailID);
-                cmd.Parameters.AddWithValue("@Query", 1);
+                cmd.Parameters.AddWithValue("@Query", insert);
                 con.Open();
                 result = cmd.ExecuteScalar().ToString();
                 return result;
@@ -43,6 +43,7 @@ namespace SatyaMvc4Crud.DataAccess
 
         public string UpdateData(Customer objcust)
         {
+            var update = 2;
             SqlConnection con = null;
             string result = "";
             try
@@ -56,7 +57,7 @@ namespace SatyaMvc4Crud.DataAccess
                 cmd.Parameters.AddWithValue("@Mobileno", objcust.Mobileno);
                 cmd.Parameters.AddWithValue("@Birthdate", objcust.Birthdate);
                 cmd.Parameters.AddWithValue("@EmailID", objcust.EmailID);
-                cmd.Parameters.AddWithValue("@Query", 2);
+                cmd.Parameters.AddWithValue("@Query", update);
                 con.Open();
                 result = cmd.ExecuteScalar().ToString();
                 return result;
@@ -72,6 +73,7 @@ namespace SatyaMvc4Crud.DataAccess
         }
         public int DeleteData(String ID)
         {
+            var delete = 3;
             SqlConnection con = null;
             int result;
             try
@@ -85,7 +87,7 @@ namespace SatyaMvc4Crud.DataAccess
                 cmd.Parameters.AddWithValue("@Mobileno", null);
                 cmd.Parameters.AddWithValue("@Birthdate", null);
                 cmd.Parameters.AddWithValue("@EmailID", null);
-                cmd.Parameters.AddWithValue("@Query", 3);
+                cmd.Parameters.AddWithValue("@Query", delete);
                 con.Open();
                 result = cmd.ExecuteNonQuery();
                 return result;
@@ -102,6 +104,7 @@ namespace SatyaMvc4Crud.DataAccess
 
         public List<Customer> Selectalldata()
         {
+            var showAll = 4;
             SqlConnection con = null;
             DataSet ds = null;
             List<Customer> custlist = null;
@@ -116,7 +119,7 @@ namespace SatyaMvc4Crud.DataAccess
                 cmd.Parameters.AddWithValue("@Mobileno", null);
                 cmd.Parameters.AddWithValue("@Birthdate", null);
                 cmd.Parameters.AddWithValue("@EmailID", null);
-                cmd.Parameters.AddWithValue("@Query", 4);
+                cmd.Parameters.AddWithValue("@Query", showAll);
                 con.Open();
                 SqlDataAdapter da = new SqlDataAdapter();
                 da.SelectCommand = cmd;
@@ -149,6 +152,7 @@ namespace SatyaMvc4Crud.DataAccess
 
         public Customer SelectDatabyID(string CustomerID)
         {
+            var showById = 5;
             SqlConnection con = null;
             DataSet ds = null;
             Customer cobj = null;
@@ -163,7 +167,7 @@ namespace SatyaMvc4Crud.DataAccess
                 cmd.Parameters.AddWithValue("@Mobileno", null);
                 cmd.Parameters.AddWithValue("@Birthdate", null);
                 cmd.Parameters.AddWithValue("@EmailID", null);
-                cmd.Parameters.AddWithValue("@Query", 5);
+                cmd.Parameters.AddWithValue("@Query", showById);
                 SqlDataAdapter da = new SqlDataAdapter();
                 da.SelectCommand = cmd;
                 ds = new DataSet();
@@ -177,7 +181,6 @@ namespace SatyaMvc4Crud.DataAccess
                     cobj.Mobileno = ds.Tables[0].Rows[i]["Mobileno"].ToString();
                     cobj.EmailID = ds.Tables[0].Rows[i]["EmailID"].ToString();
                     cobj.Birthdate = Convert.ToDateTime(ds.Tables[0].Rows[i]["Birthdate"].ToString());
-
                 }
                 return cobj;
             }

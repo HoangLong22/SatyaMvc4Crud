@@ -1,0 +1,38 @@
+﻿body {
+}
+
+.title h3 {
+    text-align: center;
+    padding-top: 10px;
+    color: #fff;
+    padding-bottom: 10px;
+    background-color: #5679bb;
+    margin-top: 0px;
+}
+
+.link {
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.content .view .container .col-md-3 {
+    padding-top: 10px;
+    text-align: center;
+}
+
+.container h4 {
+    color: #268f0d;
+    font-weight: 700;
+}
+
+.col-md-9 .row {
+    padding-bottom: 15px;
+}
+
+.text-box {
+    width: 70%;
+}
+label {
+    font-weight: 400;
+}
