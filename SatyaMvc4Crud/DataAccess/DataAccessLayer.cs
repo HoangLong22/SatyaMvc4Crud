@@ -104,7 +104,7 @@ namespace SatyaMvc4Crud.DataAccess
 
         public List<Customer> Selectalldata()
         {
-            var showAll = 4;
+            var showall = 4;
             SqlConnection con = null;
             DataSet ds = null;
             List<Customer> custlist = null;
@@ -119,7 +119,7 @@ namespace SatyaMvc4Crud.DataAccess
                 cmd.Parameters.AddWithValue("@Mobileno", null);
                 cmd.Parameters.AddWithValue("@Birthdate", null);
                 cmd.Parameters.AddWithValue("@EmailID", null);
-                cmd.Parameters.AddWithValue("@Query", showAll);
+                cmd.Parameters.AddWithValue("@Query", showall);
                 con.Open();
                 SqlDataAdapter da = new SqlDataAdapter();
                 da.SelectCommand = cmd;
@@ -152,7 +152,7 @@ namespace SatyaMvc4Crud.DataAccess
 
         public Customer SelectDatabyID(string CustomerID)
         {
-            var showById = 5;
+            var showbyid = 5;
             SqlConnection con = null;
             DataSet ds = null;
             Customer cobj = null;
@@ -167,7 +167,7 @@ namespace SatyaMvc4Crud.DataAccess
                 cmd.Parameters.AddWithValue("@Mobileno", null);
                 cmd.Parameters.AddWithValue("@Birthdate", null);
                 cmd.Parameters.AddWithValue("@EmailID", null);
-                cmd.Parameters.AddWithValue("@Query", showById);
+                cmd.Parameters.AddWithValue("@Query", showbyid);
                 SqlDataAdapter da = new SqlDataAdapter();
                 da.SelectCommand = cmd;
                 ds = new DataSet();
