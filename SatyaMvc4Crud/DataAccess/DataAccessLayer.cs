@@ -11,10 +11,14 @@ namespace SatyaMvc4Crud.DataAccess
 {
     public class DataAccessLayer
     {
+        public const int INSERT = 1;
+        public const int UPDATE = 2;
+        public const int DELETE = 3;
+        public const int SHOWALL = 4;
+        public const int SHOWBYID = 5;
         public string InsertData(Customer objcust)
         {
             SqlConnection con = null;
-            var insert = 1;
             string result = "";
             try
             {
@@ -26,7 +30,7 @@ namespace SatyaMvc4Crud.DataAccess
                 cmd.Parameters.AddWithValue("@Mobileno", objcust.Mobileno);
                 cmd.Parameters.AddWithValue("@Birthdate", objcust.Birthdate);
                 cmd.Parameters.AddWithValue("@EmailID", objcust.EmailID);
-                cmd.Parameters.AddWithValue("@Query", insert);
+                cmd.Parameters.AddWithValue("@Query", INSERT);
                 con.Open();
                 result = cmd.ExecuteScalar().ToString();
                 return result;
@@ -43,7 +47,6 @@ namespace SatyaMvc4Crud.DataAccess
 
         public string UpdateData(Customer objcust)
         {
-            var update = 2;
             SqlConnection con = null;
             string result = "";
             try
@@ -57,7 +60,7 @@ namespace SatyaMvc4Crud.DataAccess
                 cmd.Parameters.AddWithValue("@Mobileno", objcust.Mobileno);
                 cmd.Parameters.AddWithValue("@Birthdate", objcust.Birthdate);
                 cmd.Parameters.AddWithValue("@EmailID", objcust.EmailID);
-                cmd.Parameters.AddWithValue("@Query", update);
+                cmd.Parameters.AddWithValue("@Query", UPDATE);
                 con.Open();
                 result = cmd.ExecuteScalar().ToString();
                 return result;
@@ -73,7 +76,6 @@ namespace SatyaMvc4Crud.DataAccess
         }
         public int DeleteData(String ID)
         {
-            var delete = 3;
             SqlConnection con = null;
             int result;
             try
@@ -87,7 +89,7 @@ namespace SatyaMvc4Crud.DataAccess
                 cmd.Parameters.AddWithValue("@Mobileno", null);
                 cmd.Parameters.AddWithValue("@Birthdate", null);
                 cmd.Parameters.AddWithValue("@EmailID", null);
-                cmd.Parameters.AddWithValue("@Query", delete);
+                cmd.Parameters.AddWithValue("@Query", DELETE);
                 con.Open();
                 result = cmd.ExecuteNonQuery();
                 return result;
@@ -104,7 +106,6 @@ namespace SatyaMvc4Crud.DataAccess
 
         public List<Customer> Selectalldata()
         {
-            var showall = 4;
             SqlConnection con = null;
             DataSet ds = null;
             List<Customer> custlist = null;
@@ -119,7 +120,7 @@ namespace SatyaMvc4Crud.DataAccess
                 cmd.Parameters.AddWithValue("@Mobileno", null);
                 cmd.Parameters.AddWithValue("@Birthdate", null);
                 cmd.Parameters.AddWithValue("@EmailID", null);
-                cmd.Parameters.AddWithValue("@Query", showall);
+                cmd.Parameters.AddWithValue("@Query", SHOWALL);
                 con.Open();
                 SqlDataAdapter da = new SqlDataAdapter();
                 da.SelectCommand = cmd;
@@ -151,8 +152,7 @@ namespace SatyaMvc4Crud.DataAccess
         }
 
         public Customer SelectDatabyID(string CustomerID)
-        {
-            var showbyid = 5;
+        {;
             SqlConnection con = null;
             DataSet ds = null;
             Customer cobj = null;
@@ -167,7 +167,7 @@ namespace SatyaMvc4Crud.DataAccess
                 cmd.Parameters.AddWithValue("@Mobileno", null);
                 cmd.Parameters.AddWithValue("@Birthdate", null);
                 cmd.Parameters.AddWithValue("@EmailID", null);
-                cmd.Parameters.AddWithValue("@Query", showbyid);
+                cmd.Parameters.AddWithValue("@Query", SHOWBYID);
                 SqlDataAdapter da = new SqlDataAdapter();
                 da.SelectCommand = cmd;
                 ds = new DataSet();
